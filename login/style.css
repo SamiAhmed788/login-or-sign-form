@@ -1,0 +1,19 @@
+body{
+    background-image: url(https://img.freepik.com/premium-vector/abstract-background-with-slashed-lines-studio-space-is-empty-with-smooth-soft-black-colo_573652-516.jpg?w=900);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+input{
+    width: 90%;
+    height: 60px;
+    border-color: blue;
+   margin: 0 auto;
+
+}
+ h1{
+    font-size: 40px;
+}
+button{
+    width: 90%;
+    height: 60px;
+}
