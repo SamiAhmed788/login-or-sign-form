@@ -29,27 +29,15 @@ nation.innerHTML = JSON.parse(localStorage.getItem("logInUser")).nationalty
 
 
 
-let dp = document.getElementById("dp")
-
-let InputFile = document.getElementById("input-file")
-
-InputFile.onchange = function () {
-dp.src = URL.createObjectURL(InputFile.files[0])    
-}
 
 
 
 
-const datastore = document.getElementById("datastore")
-const datacollecton = document.getElementById("userdataa")
-const show = document.getElementById("show")
 
-const switchhandler = () =>{
-    datastore.style.visibility="hidden"
-    datacollecton.style.visibility="hidden"
-show.style.display="block"
-    
-}
+
+
+
+
 
 const openhandler = ()=>{
    datacollecton.style.visibility="visible"
@@ -144,70 +132,75 @@ setTimeout(()=>{
 
 
 
-// const inputpost = document.getElementById("Postinput")
+const inputpost = document.getElementById("Postinput")
 
-// const contentarea = document.getElementById("postarea")
+const contentarea = document.getElementById("postarea")
 
-// let imageurl ;
+let imageurl ;
 
-// const postLocalStorage = JSON.parse(localStorage.getItem('posts')) || []
+const postLocalStorage = JSON.parse(localStorage.getItem('posts')) || []
+console.log(postLocalStorage);
 
-// const postdisplay = () =>{
-//     contentarea.innerHTML = ""
 
-// postLocalStorage.forEach(element => {
+
+
+const postdisplay = () =>{
+    console.log("ddddddfff");
+    contentarea.innerHTML = ""
+
+postLocalStorage.foreach(element => {
 
     
-//     const texthtml =`<div class="card">
-//     <div class="card-body">
-//       <h5 class="card-title"></h5>
-//       <p class="card-text"></p>
-//       <p class="card-text"><small class="text-body-secondary">${element.userdetail}</small></p>
-//     </div>
-//     <img id="imagepost" src="" class="card-img-bottom" alt="...">
-//   </div>
-//     `
-//     contentarea.innerHTML+=texthtml
-// });
-// }
-// postdisplay()
+    const texthtml =`<div class="card">
+    <div class="card-body">
+      <h5 class="card-title"></h5>
+      <p class="card-text"></p>
+      <p class="card-text"><small class="text-body-secondary">${inputpost.value}</small></p>
+    </div>
+    <img id="imagepost" src="" class="card-img-bottom" alt="...">
+  </div>
+    `
+    contentarea.innerHTML+=texthtml
+});
+}
+postdisplay()
 
-// const imagepost = document.getElementById("imagepost")
-// const  Imageopenhandler= ()=>{
-//     imageurl = prompt()
-// }
-// console.log(imageurl);
-//  function Posthandler(){ 
+const imagepost = document.getElementById("imagepost")
+const  Imageopenhandler= ()=>{
+   imageurl = imagepost.value
+}
+console.log(imageurl);
+
+const postSubmitHandler = ()=>{
+    let obje ;
+    console.log( inputpost.value ," post input");
+
+    if(imageurl){
+    console.log(imageurl);
+obje={
+    textdata : inputpost.value,
+    image : imageurl,
+    userdetail : JSON.parse(localStorage.getItem("loggedInUser"))
+}
+}else{
+    obje={
+        textdata : inputpost.value,
  
-// let obje ;
-//     console.log( inputpost ," post input");
+        userdetail : JSON.parse(localStorage.getItem("loggedInUser"))
+    }
+}
 
-//     if(imageurl){
-//     console.log(imageurl);
-// obje={
-//     textdata : inputpost.value,
-//     image : imageurl,
-//     userdetail : JSON.parse(localStorage.getItem("loggedInUser"))
-// }
-// }else{
-//     obje={
-//         textdata : inputpost.value,
- 
-//         userdetail : JSON.parse(localStorage.getItem("loggedInUser"))
-//     }
-// }
+postLocalStorage.push(obje)
 
-// postLocalStorage.push(obje)
+localStorage.setItem("post " , JSON.stringify(postLocalStorage))
 
-// localStorage.setItem("post " , JSON.stringify(postLocalStorage))
+imageurl = ""
+inputpost.value  = ""
 
-// imageurl = ""
-// inputpost.value  = ""
+}
 
-// posthandler()
-// }
 
-// }
+
 
 
 
