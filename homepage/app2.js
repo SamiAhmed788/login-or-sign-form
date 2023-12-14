@@ -64,19 +64,21 @@ const postInput = document.querySelector('#Postinput')
 
 const postContentArea = document.querySelector('#postarea')
                       
-let imageUrl;
+var today = new Date ();
+var dd = String (today.getHours())
 let oldPost;
 let oldPostIndex;
 
 const postsLocalStorage = JSON.parse(localStorage.getItem('posts')) || []
 
+const btn2 = document.getElementById("Submitbtn")
 
-
+let imageUrl ;
 
 const postDisplayHandler = () => {
     postContentArea.innerHTML = ""
 
-
+btn2.textContent= "Post now"
     const postsLocalStorage = JSON.parse(localStorage.getItem('posts')) || []
 
 
@@ -86,13 +88,13 @@ const postDisplayHandler = () => {
        if (post?.imgData) {
         textHTML =`<div class="card text-center" style="color: rgb(255, 255, 255); background-color: black; " >
         <div class="card-header" id="userName">
-               ${loggedInUser.email === post?.userDetail.email ? `<button onclick="editHandler(${post?.id})">Edit</button> ${post?.userDetail.userName} <button onclick="deleteHandler(${post?.id})">Delete</button>` : `${post?.userDetail.userName}`} 
+               ${loggedInUser.email === post?.userDetail.email ? `<button id= "editbtn" style="margin-right: 150px;" class="btn btn-light"  onclick="editHandler(${post?.id})">Edit</button> ${post?.userDetail.firstname} <button style="margin-left: 150px;" class="btn btn-light"  onclick="deleteHandler(${post?.id})">Delete</button>` : `${post?.userDetail.firstname}`} 
             </div>
         <div class="card" style="color: rgb(255, 255, 255); background-color: black; " >
 <div class="card-body">
 <h5 class="card-title">Special Post</h5>
 <p class="card-text">${post.textData}</p>
-<p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+<p class="card-text"><small class="text-body-">Last updated ${dd}pm</small></p>
 </div>
 <img src="${post?.imgData}" >
 </div>
@@ -126,29 +128,27 @@ postDisplayHandler()
 
 
 
-const Imageopenhandler = () => {
-    imageUrl = prompt()
-    console.log(imageUrl);
-}
-
+const Imageopenhandler = () => {imageUrl = prompt("enter image url")}
 function PostSubmitHandler(){
     let postObj;
     
-    if (imageUrl) {
-        console.log(imageUrl, "====>>imageUrl")
-        postObj = {
-            id: Date.now(),
-            textData: postInput.value,
-            imgData: imageUrl,
-            userDetail: JSON.parse(localStorage.getItem('loggedInUser'))
-        }
-    } else {
+    if (!imageUrl) {
+
         postObj = {
             id : Date.now(),
             textData: postInput.value,
             userDetail: JSON.parse(localStorage.getItem('loggedInUser'))
         }
+    } else {
+        console.log(imageUrl, "====>>imageUrl")
+        postObj = {
+            id: Date.now(),
+            textData: postInput.value,
+            imgData:imageUrl,
+            userDetail: JSON.parse(localStorage.getItem('loggedInUser'))
+        }
     }
+
 
     postsLocalStorage.push(postObj)
 
@@ -163,12 +163,11 @@ function PostSubmitHandler(){
     postDisplayHandler()
 }
 
-const logoutHandler = () => {
+const logouthandler = () => {
     localStorage.removeItem('loggedInUser')
 
-    window.location.href = '../login/index.html'
+    window.location.href = '../login/index2.html'
 }
-
 
 
 
@@ -177,17 +176,97 @@ const logoutHandler = () => {
 const editHandler= (postId) =>{
 console.log(postId);
 const postsLocalStorage = JSON.parse(localStorage.getItem("posts"))
-console.log(postsLocalStorage);
+console.log(postsLocalStorage, "====>> postsLocalStorage")
 
-const postfind = postsLocalStorage.find((post)=>{return post === postId})
+const postfind = postsLocalStorage.find((post)=>{return post.id === postId})
 const indexfind = postsLocalStorage.findIndex((post)=>{return post.id === postId})
 
 
 console.log(postfind);
 console.log(indexfind);
-// oldPost = postfind
-// oldPostIndex = indexfind
+
+
+oldPost = postfind
+oldPostIndex = indexfind
+
+postInput.value = postfind.textData
+
+btn2.textContent= "edit"
+
+btn2.setAttribute("onclick" , "updateHandler()")
+
+
+}
+
+const updateHandler = ()=>{
+    console.log(postInput);
+    
+    let postObj;
+    
+    if (!imageUrl) {
+
+        postObj = {
+            id : Date.now(),
+            textData: postInput.value,
+            userDetail: JSON.parse(localStorage.getItem('loggedInUser'))
+        }
+    } else {
+        console.log(imageUrl, "====>>imageUrl")
+        postObj = {
+            id: Date.now(),
+            textData: postInput.value,
+            imgData:imageUrl,
+            userDetail: JSON.parse(localStorage.getItem('loggedInUser'))
+        }
+    }
+
+    const newUpdatePostData = {
+        id: oldPost?.id,
+
+        textData: postObj.textData || oldPost.textData,
+
+        //textData: condition ? implement1 : implement2
+
+        imgData: postObj.imgData || oldPost.imgData,
+
+        userDetail: JSON.parse(localStorage.getItem('loggedInUser'))
+
+    }
+    console.log(newUpdatePostData);
+
+const  postsLocalStorage = JSON.parse(localStorage.getItem("posts"))
+
+postsLocalStorage.splice(oldPostIndex,1 , newUpdatePostData)
+
+console.log(postsLocalStorage, "===>>> postLocalStorage")
+
+localStorage.setItem("posts", JSON.stringify(postsLocalStorage))
+
+btn2.textContent= "submit"
+
+btn2.setAttribute("onclick", "postDisplayHandler()")
+
+setTimeout(()=>{
+    window.location.reload()
+},2000)
 
 
 
+}
+
+
+
+const deleteHandler =(postId) =>{
+    const fordelete = JSON.parse(localStorage.getItem("posts"))
+  
+    const felter = fordelete.filter((post)=>  post.id != postId )
+console.log(felter);
+    localStorage.setItem("posts" , JSON.stringify(felter))
+
+    postDisplayHandler()
+
+    setTimeout(()=>{
+        window.location.reload()
+    },1000)
+    
 }

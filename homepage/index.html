@@ -19,14 +19,17 @@
       <div class="col-2">
    <img src="Untitled design.png" alt=""  width="100px">
 <ul class="pt-2" style="padding-left: 0;">
-  <li onclick="homehandler()"> <i class="fa-solid fa-house"></i>Home</li>
+  <li><a href="../homepage/index.html"> <i class="fa-solid fa-house"></i>Home</li></a>
   <li  onclick="searchhandler()"><i class="fa-solid fa-magnifying-glass"></i> Search</li>
   <li onclick="explorehandler()"><i class="fa-regular fa-compass"></i> Explore</li>
   <li onclick="reelhandler()"> <i class="fa-brands fa-youtube"></i>Reel</li>
-  <li id="prof"><i class="fa-brands fa-facebook-messenger"></i> my Profile</li>
+ <li> <a href="../profile/index.html" style="text-decoration: none; color: white;" id="prof"><i class="fa-brands fa-facebook-messenger"></i> my Profile</a ></li>
   <li onclick="Notificationhandler()"><i class="fa-regular fa-heart"></i>Notification</li>
   <li > <i class="fa-solid fa-plus"></i>Create</li>
-  <li onclick="openModal()"> <i class="fa-regular fa-user"></i>Profile Update</li>
+ <li> <a data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <i class="fa-regular fa-user"></i>  profile update
+  </a></li>
+
 </ul > 
 
 <li style="margin-top: 70px;"><i class="fa-brands fa-threads"></i> Threads</li>
@@ -47,10 +50,10 @@
 <i class="fa-regular fa-user"></i> <input id="Postinput" type="text" placeholder="whats on your mind">
 <hr>
 <div  style="display: flex;justify-content: space-evenly;">
-<a href="" onclick="Imageopenhandler()" style="color: black; text-decoration: none; color: white;"> <i style="color: rgb(38, 227, 38);" class="fa-solid fa-photo-film"></i> Photos/videos</a>
+<a  onclick="Imageopenhandler()"    style="color: black; text-decoration: none; color: white;"> <i style="color: rgb(38, 227, 38);" class="fa-solid fa-photo-film"></i> Photos/videos</a>
 <a href="#"   style="color: black; text-decoration: none; color: white;"> <i style="color: rgb(255, 234, 0);" class="fa-regular fa-face-smile"></i> Feeling/Activity</a>
 
-<button onclick="ostSubmitHandler()"  type="button" class="btn btn-primary">Post Now</button>
+<button onclick="PostSubmitHandler()" id="Submitbtn"  type="button" class="btn btn-primary">Post Now</button>
 
 
 
@@ -107,7 +110,62 @@
 
 
 
-
+  <div style="color: black;" class="modal fade "  id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">update your Profile</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form class="row g-3">
+            <div class="col-md-6">
+             
+              <label for="userName" class="form-label">first name</label>
+              <input type="email" class="form-control" id="userName">
+            </div>
+            <div class="col-md-6">
+              <label for="inputPassword4" class="form-label">last name</label>
+              <input type="text" class="form-control" id="inputPassword4">
+            </div>
+            <div class="col-12">
+              <label for="inputAddress" class="form-label">Email</label>
+              <input type="text" class="form-control" id="inputAddress" placeholder="xyz@gmail.com">
+            </div>
+            <div class="col-12">
+              <label for="inputAddress2" class="form-label">description</label>
+              <input type="text" class="form-control" id="inputAddress2" placeholder="some information about you">
+            </div>
+            
+            <div class="col-md-4">
+              <label for="inputState" class="form-label">city</label>
+              <select id="inputState" class="form-select">
+                <option selected>Choose...</option>
+                <option>karachi</option>
+                <option>lahore</option>
+                <option>peshawar</option>
+                <option>queeta</option>
+              </select>
+            </div>
+          
+            <div class="col-12">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="gridCheck">
+                <label class="form-check-label" for="gridCheck">
+                  confirm changes
+                </label>
+              </div>
+            </div>
+           
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
  
         
 

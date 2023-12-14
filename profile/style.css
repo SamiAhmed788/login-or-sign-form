@@ -10,15 +10,15 @@ body{
     color: white;
     text-transform: capitalize;
 }
-/* .modal-body input{
+.modal-body input{
     width: 95%;
     height: 25px;
     border: none;
 border-radius: 20px;
 background-color: rgb(222, 222, 222);
-} */
+}
 
-/* 
+
 .modal-box{
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     text-align: center;
@@ -94,12 +94,12 @@ background-color: rgb(222, 222, 222);
 .modal-content ul li i{
     font-size: 30px;
     color: green;
-} */
- */
+}
 
 
 
- .active{
+
+.active{
     display: block;
 }
 .inactive{
@@ -124,7 +124,7 @@ i{
     margin-right: 6px;
 }
 
-/* 
+
 .heartbeat {
     animation: heartbeat 1.5s ease-in-out infinite both;
 }
@@ -161,7 +161,7 @@ from {
     -webkit-animation-timing-function: ease-out;
             animation-timing-function: ease-out;
 }
-} */
+}
   
 .swal-modal {
     text-transform: capitalize;
