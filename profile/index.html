@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>home </title>
+  <title>My Profile</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
   integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">  
@@ -26,7 +26,9 @@
  <li> <a href="./profile/index.html" style="text-decoration: none; color: white;" id="prof"><i class="fa-brands fa-facebook-messenger"></i> my Profile</a ></li>
   <li onclick="Notificationhandler()"><i class="fa-regular fa-heart"></i>Notification</li>
   <li > <i class="fa-solid fa-plus"></i>Create</li>
-  <li onclick="openModal()"> <i class="fa-regular fa-user"></i>Profile Update</li>
+  <li> <a data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <i class="fa-regular fa-user"></i>  profile update
+  </a></li>
 </ul > 
 
 <li style="margin-top: 70px;"><i class="fa-brands fa-threads"></i> Threads</li>
@@ -42,14 +44,24 @@
       <!-- content -->
       
       <div class="col-7" >
-        <div class="fauser" style="display: flex; flex-direction: row; margin-top: 100px; justify-content: center;">
-<div>
-    <img src="Doctor_Physician_man.png" id="dp" alt="" width="200px" style="border-radius : 50%;">
 
-    <label style="display: block; border-radius: 20px ; background-color: rgb(32, 94, 229); color: aliceblue; height: 30px; width: 150px; text-align: center;" for="input-file">Add Profile Image</label>
-    <input style="display: none;" type="file" accept="image/jpeg, image.png, image/jpg" id="input-file">
-</div>
-<div id="userdataa"  style="color: rgb(255, 255, 255);">
+        <div class="card mb-3">
+          <img src="sd.jpg" height="400px"  class="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title">Profile</h5>
+            <h6 id="userNamese" ></h6>
+          Nationality :  <h6 id="nation" ></h6>
+           city :  <h6 id="citys" ></h6>
+           <p >description : <span id="desc"></span> </p>
+            <button class="btn btn-outline-success"data-bs-toggle="modal" data-bs-target="#exampleModal">
+                profile update
+            </button>
+          </div>
+        </div>
+      </div>
+
+
+<!-- <div id="userdataa"  style="color: rgb(255, 255, 255);">
         
     <h3  id="userName"></h3>
     <h6>Email : <span id="useremail"></span></h6>
@@ -57,14 +69,10 @@
     <h6> Nationality : <span id="usernation"></span></h6>
     <h6>Phone number : <span id="plnumber"></span> </h6>
     
-    </div>
+    </div> -->
    
 </div>
- 
-<div class="disciption" style="margin-left: 230px; margin-top: 40px;">
-    <h4>description : <span id="desc" style="font-size: 15px;"><p></p> </span></h4>
-    </div>
-    <hr>
+
 <div style="background-color: rgb(0, 0, 0); border-radius: 20px; margin-top: 80px;">
 
 <div  style="display: flex;justify-content: space-evenly;">
@@ -75,8 +83,6 @@
 </div>
 <div id="postarea" style="margin-top: 100px;"> 
 
- 
-</div>
       </div>
     
 
@@ -90,9 +96,7 @@
       
 <div id="user"  style="color: rgb(255, 255, 255);">
         
-  <h3  id="userName"></h3>
-    <h6>Email : <span id="useremail"></span></h6>
-
+ 
 
 
 </div>
@@ -103,25 +107,70 @@
     </div>
   </div>
 
-  <div id="modalBody" class="modal-body inactive " >
-    <div class="inner-modal-box">
-        <div class="modal-content">
-          <h3>Profie Update </h3>
-           Phone number : <input type="text" id="pnumber" placeholder="" > 
-           Age :<input type="text" id="age"  placeholder=""> 
-           City :<input type="text" id="city" placeholder=""> 
-           Nationality :<input type="text" id="nationality" placeholder="" >
-           discription : <input type="text" id="description" placeholder="description">
-           <button type="button" class="btn btn-outline-success" onclick="ihandler()" style="width:90%; margin-left: 30px; margin-top: 20px;">Submit</button>
 
+
+  <div style="color: black;" class="modal fade "  id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">update your Profile</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <a id="close" href="javascript:avoid(0)" onclick="closeModal()"> 
-          <i  class="fa-solid fa-circle-xmark fa-beat"></i></a>
+        <div class="modal-body">
+          <form class="row g-3">
+            <div class="col-md-6">
+             
+              <label for="userName" class="form-label">first name</label>
+              <input type="email" class="form-control" id="userName">
+            </div>
+            <div class="col-md-6">
+              <label for="lastname" class="form-label">last name</label>
+              <input type="text" class="form-control" id="lastname">
+            </div>
+            <div class="col-12">
+              <label for="useremail" class="form-label">Email</label>
+              <input type="text" class="form-control" id="useremail" placeholder="xyz@gmail.com">
+            </div>
+            <div class="col-12">
+              <label for="pnumber" class="form-label">Phone Number</label>
+              <input type="text" class="form-control" id="pnumber" placeholder="03123456789">
+            </div>
+            <div class="col-12">
+              <label for="nationality" class="form-label">nationality</label>
+              <input type="text" class="form-control" id="nationality" placeholder="some information about you">
+            </div>
+            <div class="col-md-4">
+              <label for="city" class="form-label">city</label>
+              <select id="city" class="form-select">
+                <option selected>Choose...</option>
+                <option>karachi</option>
+                <option>lahore</option>
+                <option>peshawar</option>
+                <option>queeta</option>
+              </select>
+            </div>
+            <div class="col-12">
+              <label for="desc" class="form-label">description</label>
+              <input type="text" class="form-control" id="desc" placeholder="some information about you">
+            </div>
+            <div class="col-12">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="gridCheck">
+                <label class="form-check-label" for="gridCheck">
+                  confirm changes
+                </label>
+              </div>
+            </div>
+           
+          </form>
         </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" onclick="ihandler()">Save changes</button>
+        </div>
+      </div>
     </div>
   </div>
-
-
 
 
 

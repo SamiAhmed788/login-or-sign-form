@@ -6,20 +6,14 @@ if (!loggedInUser) window.location.href = '../login/index.html'
 
 // profileimgData
 
-const userName = document.getElementById('userName')
+const userNamees = document.getElementById('userNamese')
 const pnumber = document.getElementById("plnumber")
 const umar = document.getElementById("umar")
-const nation = document.getElementById("usernation")
+const nation = document.getElementById("nation")
 const gmail = document.getElementById ("useremail")
 const decx = document.getElementById("desc")
-
-userName.innerHTML = JSON.parse(localStorage.getItem('loggedInUser')).firstname
-gmail.innerHTML = JSON.parse(localStorage.getItem('loggedInUser')).email
-umar.innerHTML = JSON.parse(localStorage.getItem("logInUser")).age
-pnumber.innerHTML = JSON.parse(localStorage.getItem("logInUser")).phone
-nation.innerHTML = JSON.parse(localStorage.getItem("logInUser")).nationalty
-decx.innerHTML = JSON.parse(localStorage.getItem("logInUser")).description
-// buttonsfunction
+const Lastname = document.getElementById("lastname")
+const shher = document.getElementById("citys")
 
 const datastore = document.getElementById("datastore")
 const datacollecton = document.getElementById("userdataa")
@@ -38,67 +32,54 @@ const switchhandler = () =>{
 
 // profile image>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-let dp = document.getElementById("dp")
+// let dp = document.getElementById("dp")
 
-let InputFile = document.getElementById("input-file")
+// let InputFile = document.getElementById("input-file")
 
-InputFile.onchange = function () {
-    dp.src = URL.createObjectURL(InputFile.files[0])    
-    }
+// InputFile.onchange = function () {
+//     dp.src = URL.createObjectURL(InputFile.files[0])    
 
-
-
-    const modalBtn = document.querySelector('#modalOpen')
-    const close = document.querySelector('#close')
-    const mBody = document.querySelector('#modalBody')
-    
-    
-    const modalBody = document.getElementById("modalBody")
-    function openModal() {
-        mBody.classList.remove('inactive')
-        mBody.classList.add('active')
-        modalBody.classList.remove('close')
-    }
-    
-    function closeModal() {
-        mBody.classList.remove('active')
-        mBody.classList.add('inactive')
-    }
+//     }
 
 
-
-
-const description = document.getElementById("description")
+const descriptions = document.getElementById("descriptions")
     const nationalty = document.getElementById("nationality")
-    const city = document.getElementById("city")
+    const citys = document.getElementById("city")
     const age = document.getElementById("age")
     const phonenumber = document.getElementById("pnumber")
+    const useremail = document.getElementById("useremail")
+
     const ihandler = () => {
+
+
         const loggedInUser= JSON.parse(localStorage.getItem('loggedInUser'))
         
     
-        const extrainformation = {
-            phonenumber : phonenumber.value,
-            nationalty: nationalty.value,
-            city : city.value,
-            age: age.value,
-        description : description.value
-        }
-     
+        // const extrainformation = {
+        //     phonenumber : phonenumber.value,
+        //     nationalty: nationalty.value,
+        //     city : city.value,
+        //     age: age.value,
+        // descriptions : descriptions.value
+        // }
+     loggedInUser.firstname =  userName.value;
+     loggedInUser.lastname = Lastname.value
         loggedInUser.phone = phonenumber.value;
         loggedInUser.nationalty = nationalty.value;
-        loggedInUser.age = age.value;
-        loggedInUser.city = city.value;
-    loggedInUser.description = description.value ;
+        // loggedInUser.age = age.value;
+        loggedInUser.city = citys.value;
+    loggedInUser.descriptions = decx.value ;
+// loggedInUser.Lastname = lastname.value;
+loggedInUser.email = gmail.value;
 
     
      console.log(loggedInUser);
      localStorage.setItem('logInUser', JSON.stringify(loggedInUser))
     
     setTimeout(()=>{
-        modalBody.classList.add('close')
+     
     },2000)
      
     }
 
-
+    userNamees.innerHTML= userName.value

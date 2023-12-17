@@ -96,8 +96,13 @@ btn2.textContent= "Post now"
 <p class="card-text">${post.textData}</p>
 <p class="card-text"><small class="text-body-">Last updated ${dd}pm</small></p>
 </div>
-<img src="${post?.imgData}" >
+<img  height ="500px" src="${post?.imgData}" >
 </div>
+<div class="class" style=" border : 1px solid white ;  display : flex; justify-content : space-around; height :40px  ; align-items : center; "><i class="fa-regular fa-heart"></i>
+<i class="fa-regular fa-comment"></i>
+<i class="fa-solid fa-share"></i>
+</div>
+
 </div>`
        
        }else{
