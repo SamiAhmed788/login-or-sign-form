@@ -6,8 +6,8 @@ border-radius: 20px;
 background-color: rgb(222, 222, 222);
 }
 body{
-    background-color: black;
-    color: white;
+    background-color: white;
+    color: black;
     text-transform: capitalize;
 }
 /* .modal-body input{
@@ -115,13 +115,18 @@ background-color: rgb(222, 222, 222);
 
 
 li{
-    font-size: 11px;
+    font-size: 16px;
     margin-top: 15px;
     list-style-type: none;
 
 }
 i{
+ color: black;
     margin-right: 6px;
+}
+
+#instagram{
+    margin-top: 30px;
 }
 
 /* 
@@ -172,5 +177,8 @@ from {
   a{
 
     text-decoration: none;
-    color: white;
+    color:black;
+  }
+  #images{
+    width: 50px;
   }

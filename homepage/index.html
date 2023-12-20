@@ -16,26 +16,28 @@
   <div class="container-fluid">
     <div class="row">
       <!-- navbar -->
-      <div class="col-2" style="border-right: 1px solid white;" >
-   <img src="Untitled design.png" alt=""  width="100px">
-<ul class="pt-2" style="padding-left: 0; ">
-  <li><a href="../homepage/index.html"> <i class="fa-solid fa-house"></i>Home</li></a>
-  <li  onclick="searchhandler()"><i class="fa-solid fa-magnifying-glass"></i> Search</li>
-  <li onclick="explorehandler()"><i class="fa-regular fa-compass"></i> Explore</li>
-  <li onclick="reelhandler()"> <i class="fa-brands fa-youtube"></i>Reel</li>
- <li> <a href="../profile/index.html" style="text-decoration: none; color: white;" id="prof"><i class="fa-brands fa-facebook-messenger"></i> my Profile</a ></li>
-  <li onclick="Notificationhandler()"><i class="fa-regular fa-heart"></i>Notification</li>
-  <li > <i class="fa-solid fa-plus"></i>Create</li>
- <li> <a data-bs-toggle="modal" data-bs-target="#exampleModal">
+      <div class="col-2" style="position: fixed;">
+       
+   <img src="Capture-removebg-preview.png" id="instagram"   width="100px" >
+<ul class="pt-2" style="padding-left: 0; " >
+  <li id="search"  style="margin-top: 40px;" ><a href="../homepage/index.html"> <span id="iss"><i  class="fa-solid fa-house"></i></span>Home</li></a>
+  <li id="home" onclick="searchhandler()"> <i  class="fa-solid fa-magnifying-glass"></i> Search</li>
+  <li id="explore"  onclick="explorehandler()"> <span id="icons" ><i class="fa-regular fa-compass"></i> Explore</li></span>
+  <li id="reels"  onclick="reelhandler()"> <i class="fa-brands fa-youtube"></i>Reel</li>
+ <li id="profiles" > <a href="../profile/index.html" style="text-decoration: none; color: rgb(0, 0, 0);" id="prof"><i class="fa-brands fa-facebook-messenger"></i> my Profile</a ></li>
+  <li id="Notification"   ><i class="fa-regular fa-heart"></i>Notification</li>
+  <li id="Create" data-bs-toggle="modal" data-bs-target="#exampleModal"> <i class="fa-solid fa-plus"></i>Create</li>
+ <li id="profile update"  > <a data-bs-toggle="modal" data-bs-target="#exampleModal2">
     <i class="fa-regular fa-user"></i>  profile update
   </a></li>
 
 </ul > 
+<li  id="Threads" style="margin-top: 250px;"><i class="fa-brands fa-threads"></i> Threads</li>
 
-<li style="margin-top: 70px;"><i class="fa-brands fa-threads"></i> Threads</li>
-<a class="dropdow" data-bs-toggle="dropdown" aria-expanded="false" style="text-decoration: none; color: rgb(255, 255, 255); ">
-  <i class="fa-solid fa-bars"></i> More
-</a>
+<li class="nav-item dropdown" id="More">
+  <a class="nav-link dropdown-" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="text-decoration: none; color: rgb(0, 0, 0); ">
+    <i class="fa-solid fa-bars"></i> more
+  </a>
 <ul class="dropdown-menu dropdown-menu-dark">
   <li><a class="dropdown-item" href="#" onclick="logouthandler()">Log Out</a></li>
   <li><a class="dropdown-item" href="../new page/index.html">Setting</a></li>
@@ -44,23 +46,57 @@
       </div>
       
       <!-- content -->
-      
-      <div class="col-7" >
-<h4 style="text-align: center;">Post whats in your mind</h4>
-<div style="background-color: rgb(0, 0, 0); border-radius: 20px; margin-top: 80px;">
+    
+
+      <div class="col-8"  style="border-left: 1px solid rgb(0, 0, 0); margin-top: 40px;"  >
+        <div class="status" style="background-color: white; display: flex;  justify-content: space-between; width: 200px; margin-left: 120px ;" >
+
+          <img src="R__1_-removebg-preview.png" alt="" style="width: 80px;">
+          <img src="R__1_-removebg-preview.png" alt="" style="width: 80px;">
+          <img src="R__1_-removebg-preview.png" alt="" style="width: 80px;">
+          <img src="R__1_-removebg-preview.png" alt="" style="width: 80px;">
+          <img src="R__1_-removebg-preview.png" alt="" style="width: 80px;">
+          <img src="R__1_-removebg-preview.png" alt="" style="width: 80px;">
+          <img src="R__1_-removebg-preview.png" alt="" style="width: 80px;">
+          <img src="R__1_-removebg-preview.png" alt="" style="width: 80px;">
+        </div>
+<!-- <div style="background-color: rgb(255, 255, 255); border-radius: 20px; margin-top: 80px;">
 <i class="fa-regular fa-user"></i> <input id="Postinput" type="text" placeholder="whats on your mind">
 <hr>
 <div  style="display: flex;justify-content: space-evenly;">
-<a  onclick="Imageopenhandler()"    style="color: black; text-decoration: none; color: white;"> <i style="color: rgb(38, 227, 38);" class="fa-solid fa-photo-film"></i> Photos/videos</a>
-<a href="#"   style="color: black; text-decoration: none; color: white;"> <i style="color: rgb(255, 234, 0);" class="fa-regular fa-face-smile"></i> Feeling/Activity</a>
+<a  onclick="Imageopenhandler()"    style="color: black; text-decoration: none; color: rgb(0, 0, 0);"> <i style="color: rgb(38, 227, 38);" class="fa-solid fa-photo-film"></i> Photos/videos</a>
+<a href="#"   style="color: black; text-decoration: none; color: rgb(0, 0, 0);"> <i style="color: rgb(255, 234, 0);" class="fa-regular fa-face-smile"></i> Feeling/Activity</a>
 
-<button onclick="PostSubmitHandler()" id="Submitbtn"  type="button" class="btn btn-primary">Post Now</button>
+<button onclick="PostSubmitHandler()" id="Submitbtn"  type="button" class="btn btn-primary">Post Now</button> -->
 
-
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" >
+        <div style="background-color: rgb(255, 255, 255); border-radius: 20px;">
+          <i class="fa-regular fa-user"></i> <input id="Postinput" type="text" placeholder="whats on your mind">
+          <hr>
+          <div  style="display: flex;justify-content: space-evenly;">
+          <a  onclick="Imageopenhandler()"    style="color: black; text-decoration: none; color: rgb(0, 0, 0);"> <i style="color: rgb(38, 227, 38);" class="fa-solid fa-photo-film"></i> Photos/videos</a>
+          <a href="#"   style="color: black; text-decoration: none; color: rgb(0, 0, 0);"> <i style="color: rgb(255, 234, 0);" class="fa-regular fa-face-smile"></i> Feeling/Activity</a>
+          
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" onclick="PostSubmitHandler()" id="Submitbtn">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 </div>
 </div>
-<div id="postarea" style="margin-top: 100px;"> 
+
+<div id="postarea" style="margin-top: 40px; "> 
 
  
 </div>
@@ -70,12 +106,12 @@
    
       <!-- Profile -->
      
-      <div class="col-3"  style="border-left: 1px solid white;"  >
+      <div class="col-2"  style="border-left: 1px solid white;" id="Profilek" >
         <h3 style="text-align: center;">Profile</h3>
         <img src="Untitled design.png" id="dp" style="width: 100px; border-radius: 70%;">
 <label style="display: block; border-radius: 20px ; background-color: rgb(32, 94, 229); color: aliceblue; height: 30px; width: 150px; text-align: center;" for="input-file">Add Profile Image</label>
         <input style="display: none;" type="file" accept="image/jpeg, image.png, image/jpg" id="input-file">
-<div id="userdataa"  style="color: rgb(255, 255, 255);">
+<div id="userdataa"  style="color: rgb(0, 0, 0);">
         
 <h5  id="userName"></h5>
 <h5>Email : <span id="useremail"></span></h5>
@@ -111,7 +147,7 @@
 
 
 
-  <div style="color: black;" class="modal fade "  id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div style="color: black;" class="modal fade "  id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
