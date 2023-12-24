@@ -15,7 +15,6 @@ const gmail = document.getElementById ("useremail")
 
 userName.innerHTML = JSON.parse(localStorage.getItem('loggedInUser')).firstname
 gmail.innerHTML = JSON.parse(localStorage.getItem('loggedInUser')).email
-umar.innerHTML = JSON.parse(localStorage.getItem("logInUser")).age
 pnumber.innerHTML = JSON.parse(localStorage.getItem("logInUser")).phone
 nation.innerHTML = JSON.parse(localStorage.getItem("logInUser")).nationalty
 
@@ -35,13 +34,13 @@ const threads = document.getElementById("Threads")
 const insta = document.getElementById("instagram")
 
 const pri = document.getElementById("Profilek")
-
+const stats = document.getElementById("assets")
 // buttonsfunction
 
 function mycall() {
     let screenwith = window.innerWidth;
     if (screenwith < 1200 ) {
-
+stats.style.visibility="hidden"
         lis.innerHTML=`<i  class="fa-solid fa-house"></i>`
   lis.style.fontSize="25px"
   search.innerHTML=`<i  class="fa-solid fa-magnifying-glass"></i>`
@@ -104,24 +103,11 @@ function mycall() {
 insta.src= `https://logos-world.net/wp-content/uploads/2020/04/Instagram-Logo-2010-2013.png`
 insta.style.width= "100px"
 pri.style.display="block"
+stats.style.visibility="visible"
 }}
 window.addEventListener( 'resize',mycall)
 
 
-const datastore = document.getElementById("datastore")
-const datacollecton = document.getElementById("userdataa")
-const show = document.getElementById("show")
-
-const switchhandler = () =>{
-    datastore.textContent="show profile"
-    datacollecton.style.visibility="hidden"
-    
-    datastore.addEventListener("click",()=>{
-        datastore.textContent="hide"
-        datacollecton.style.visibility="visible"
-
-    } )
-}
 
 // profile image>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
@@ -198,7 +184,7 @@ btn2.textContent= "Post now"
         textHTML = `
         <div class="card text-center" style="color: black; background-color: white; border: 2px solid white; width: 500px; margin: 0 auto ; " >
         <div class="card-header" id="userName" style="background-color: white;">
-           ${loggedInUser.email === post?.userDetail.email ? `<button class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#exampleModal" style="margin-right: 50px;" onclick="editHandler(${post?.id})">Edit</button> ${post?.userDetail.firstname} <button class="btn btn-primary"  style="margin-right: 50px;" onclick="deleteHandler(${post?.id})">Delete</button>` : `${post?.userDetail.firstname}`} 
+           ${loggedInUser.email === post?.userDetail.email ? `<button class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#exampleModal" style="margin-right: 50px;" onclick="editHandler(${post?.id})">Edit</button> ${post?.userDetail.firstname} <button class="btn btn-primary"  style="margin-left: 50px;" onclick="deleteHandler(${post?.id})">Delete</button>` : `${post?.userDetail.firstname}`} 
         </div>
         <div class="card-body">
             <h5 class="card-title">Special Post</h5>
@@ -209,6 +195,7 @@ btn2.textContent= "Post now"
         </div>
     </div>
         `
+        
        }
 
  8
@@ -251,7 +238,10 @@ function PostSubmitHandler(){
     imageUrl = ""
 
     postInput.value = ""
-
+    setTimeout(()=>{
+        window.location.reload()
+    },2000)
+    
     postDisplayHandler()
 }
 
@@ -362,5 +352,8 @@ console.log(felter);
     },1000)
     
 }
+
+
+
 
 

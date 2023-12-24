@@ -9,26 +9,24 @@ if (!loggedInUser) window.location.href = '../login/index.html'
 const userNamees = document.getElementById('userNamese')
 const pnumber = document.getElementById("plnumber")
 const umar = document.getElementById("umar")
-const nation = document.getElementById("nation")
+const nation = document.getElementById("nationa")
 const gmail = document.getElementById ("useremail")
 const decx = document.getElementById("desc")
 const Lastname = document.getElementById("lastname")
 const shher = document.getElementById("citys")
 
-const datastore = document.getElementById("datastore")
-const datacollecton = document.getElementById("userdataa")
-const show = document.getElementById("show")
 
-const switchhandler = () =>{
-    datastore.textContent="show profile"
-    datacollecton.style.visibility="hidden"
-    
-    datastore.addEventListener("click",()=>{
-        datastore.textContent="hide"
-        datacollecton.style.visibility="visible"
 
-    } )
-}
+userNamees.innerHTML = JSON.parse(localStorage.getItem('loggedInUser')).firstname
+nation.innerHTML = JSON.parse(localStorage.getItem('logInUser')).nationalty
+shher.innerHTML = JSON.parse(localStorage.getItem("logInUser")).city
+decx.innerHTML = JSON.parse(localStorage.getItem("logInUser")).description
+
+
+console.log(decx);
+
+
+
 
 // profile image>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
@@ -68,18 +66,32 @@ const descriptions = document.getElementById("descriptions")
         loggedInUser.nationalty = nationalty.value;
         // loggedInUser.age = age.value;
         loggedInUser.city = citys.value;
-    loggedInUser.descriptions = decx.value ;
+    loggedInUser.description = descriptions.value ;
 // loggedInUser.Lastname = lastname.value;
 loggedInUser.email = gmail.value;
 
     
      console.log(loggedInUser);
      localStorage.setItem('logInUser', JSON.stringify(loggedInUser))
-    
+ 
     setTimeout(()=>{
-     
+        window.location.reload()
     },2000)
      
     }
 
-    userNamees.innerHTML= userName.value
+
+    let dp = document.getElementById("dp")
+
+    let InputFile = document.getElementById("input-file")
+    
+    InputFile.onchange = function () {
+        dp.src = URL.createObjectURL(InputFile.files[0])    
+        console.log(dp.src);
+
+const profiledp = localStorage.setItem("dp" ,JSON.stringify(dp.src))
+
+        }
+
+
+

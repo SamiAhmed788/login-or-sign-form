@@ -6,8 +6,8 @@ border-radius: 20px;
 background-color: rgb(222, 222, 222);
 }
 body{
-    background-color: black;
-    color: white;
+    background-color:white;
+    color: black;
     text-transform: capitalize;
 }
 
@@ -33,5 +33,5 @@ i{
   a{
 
     text-decoration: none;
-    color: white;
+    color:black;
   }

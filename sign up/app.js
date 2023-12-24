@@ -50,7 +50,7 @@ usera.push(user)
 localStorage.setItem("usera",JSON.stringify(usera))
 
 
-alert("sign up successfully , now login your id at login page")
+alert("sign up successfully , now u login your id at login page")
 
 setTimeout(()=> {
     window.location.href='../login/index2.html'
